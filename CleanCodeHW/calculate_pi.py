@@ -10,7 +10,7 @@ POINT_COUNT_INCREMENT = 1
 inside_circle = 0
 
 # Randomly generate points and count those inside the circle
-for point in range(NUM_POINTS):
+for _ in range(NUM_POINTS):
     x = random.uniform(-RADIUS, RADIUS)
     y = random.uniform(-RADIUS, RADIUS)
     if x**SQUARE_EXPONENT + y**2 <= RADIUS**SQUARE_EXPONENT:
