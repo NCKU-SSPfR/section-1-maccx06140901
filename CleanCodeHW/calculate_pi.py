@@ -10,10 +10,10 @@ POINT_COUNT_INCREMENT = 1
 inside_circle = 0
 
 # Randomly generate points and count those inside the circle
-for _ in range(NUM_POINTS):
+for point in range(NUM_POINTS):
     x = random.uniform(-RADIUS, RADIUS)
     y = random.uniform(-RADIUS, RADIUS)
-    if x**SQUARE_EXPONENT + y**2 <= RADIUS**SQUARE_EXPONENT:
+    if x**SQUARE_EXPONENT + y**SQUARE_EXPONENT <= RADIUS**SQUARE_EXPONENT:
         inside_circle += POINT_COUNT_INCREMENT
 
 # Estimate pi based on the number of points inside the circle
