@@ -1,5 +1,5 @@
 import pytest
-from solution.py import Solution
+from solution import Solution
 
 @pytest.fixture
 def solution():
