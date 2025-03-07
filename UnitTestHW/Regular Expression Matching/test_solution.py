@@ -1,8 +1,9 @@
-import ...
-from ...
+import pytest
+from solution.py import Solution
 
 @pytest.fixture
-...
+def solution():
+    return Solution()
     
 testcases = [
     # s, p, expected_res
@@ -16,7 +17,7 @@ testcases = [
 ]
 
 @pytest.mark.parametrize([?], testcases)
-...
+def test_sp(s, p):
     assert solution.isMatch(s, p) == expected
 
 """
