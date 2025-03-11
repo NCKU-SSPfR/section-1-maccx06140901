@@ -56,5 +56,18 @@ async def test_solver():
     await reset_request()
     for i in range(5):
         await move_request("down")
-    #print(game_state)
+        await move_request("right")
+    await move_request("down")
+    await move_request("right")
+    await move_request("right")
+    for i in range(4):
+        await move_request("up")
+    await move_request("right")
+    await move_request("right")
+    await move_request("down")
+    await move_request("right")
+    await move_request("right")
+    await move_request("down")
+    await move_request("right")
+    await move_request("down")
     assert game_state["health"] == 666
