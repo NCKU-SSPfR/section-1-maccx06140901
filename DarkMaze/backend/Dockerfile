@@ -1,19 +1,14 @@
-# TODO: Install the backend dependency package into the app folder inside the container.
-
-FROM python:3.11
-
-# Set the working directory inside the container
+FROM python:3.11-slim
 WORKDIR /app
 
-# Copy the requirements file and install dependencies
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+COPY ./requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
 
-# Copy the rest of the application code
-COPY . .
+RUN useradd -m -u 1000 myuser
+RUN chown -R myuser:myuser /app
 
-# Expose the FastAPI port
+COPY --chown=myuser:myuser ./src/ /app/src
+USER myuser
+
 EXPOSE 8000
-
-# Run the FastAPI application
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]
