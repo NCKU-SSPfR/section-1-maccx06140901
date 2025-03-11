@@ -37,8 +37,6 @@ services:
       mkdir -p /reports &&
       pylint --output-format=json /usr/src/**/*.py > /reports/pylint-report.json || true &&
       flake8 --format=json /usr/src > /reports/flake8-report.json || true
-    networks:
-      - sonar-network
 
   sonar-scanner:
     image: sonarsource/sonar-scanner-cli
