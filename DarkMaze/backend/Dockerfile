@@ -8,6 +8,7 @@ RUN useradd -m -u 1000 myuser
 RUN chown -R myuser:myuser /app
 
 COPY --chown=myuser:myuser ./src/ /app/src
+COPY --chown=myuser:myuser ./tests/ /app/tests
 USER myuser
 
 EXPOSE 8000
