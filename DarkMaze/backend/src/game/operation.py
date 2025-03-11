@@ -9,9 +9,9 @@ def move_location(game_state, direction):
     
     # Update position based on direction
     if direction == "up" and y > 0:
-        y += 1
-    elif direction == "down" and y < game_state["map_size"][1] - 1:
         y -= 1
+    elif direction == "down" and y < game_state["map_size"][1] - 1:
+        y += 1
     elif direction == "left" and x > 0:
         x -= 1
     elif direction == "right" and x < game_state["map_size"][0] - 1:
