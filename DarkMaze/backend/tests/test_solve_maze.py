@@ -56,7 +56,7 @@ async def test_solver():
     await reset_request()
     for i in range(5):
         await move_request("down")
-        await move_request("right")
+    await move_request("right")
     await move_request("down")
     await move_request("right")
     await move_request("right")
