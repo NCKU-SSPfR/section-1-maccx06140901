@@ -31,7 +31,7 @@ services:
       - ./backend:/usr/src
       - ./reports:/reports
     command: >
-      sh -c "
+      sh -c ""
       apt-get update && apt-get install -y python3 python3-pip &&
       pip3 install --no-cache-dir pylint flake8 &&
       mkdir -p /reports &&
@@ -71,9 +71,7 @@ services:
     ports:
       - "8088:8088"
     command: uvicorn src.main:app --host "0.0.0.0" --port 8088 --reload
-    networks:
-      - sonar-network
-
+    
   backend:
     build: ./backend
     volumes:
@@ -81,8 +79,6 @@ services:
     ports:
       - "8000:8000"
     command: uvicorn src.main:app --host "0.0.0.0" --port 8000 --reload
-    networks:
-      - sonar-network
 
 networks:
   sonar-network:
